@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Zenith Core</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url('/static/Gemini_Generated_Image_9ibch49ibch49ibc.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            backdrop-filter: brightness(0.5);
+        }
+
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 0 20px #00f7ff;
+        }
+
+        h1, h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #00f7ff;
+        }
+
+        label {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background-color: #00f7ff;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #00c2cc;
+        }
+
+        .add-tech-btn {
+            background-color: #005aff;
+        }
+
+        .add-tech-btn:hover {
+            background-color: #003fa3;
+        }
+        .btn-integrantes {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 25px;
+        background-color: #00f7ff;
+        color: #000;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 10px;
+        box-shadow: 0 0 15px #00f7ff;
+        transition: all 0.3s ease;
+    }
+
+    .btn-integrantes:hover {
+        background-color: #00c2cc;
+        color: #fff;
+        box-shadow: 0 0 25px #00f7ff;
+        transform: scale(1.05);
+    }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h1>Cadastro Zenith Core</h1>
+    <a href="/integrantes" class="btn-integrantes">Ver Integrantes</a>
+
+    <form method="POST">
+        <label>Nome completo:</label>
+        <input type="text" name="nome" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <label>Telefone:</label>
+        <input type="text" name="telefone" required>
+
+        <label>Usuario Discord:</label>
+        <input type="text" name="discord">
+
+        <label>Link GitHub:</label>
+        <input type="text" name="github">
+
+        <label>Link LinkedIn:</label>
+        <input type="text" name="linkedin">
+
+        <h3>Tecnologias</h3>
+        <div id="tecnologias">
+            <div>
+                <input type="text" name="tecnologia" placeholder="Ex: Python">
+                <select name="nivel">
+                    <option value="Básico">Básico</option>
+                    <option value="Intermediário">Intermediário</option>
+                    <option value="Avançado">Avançado</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="button" class="add-tech-btn" onclick="addTech()">+ Adicionar Tecnologia</button>
+        <button type="submit">Enviar Cadastro</button>
+    </form>
+</div>
+
+<script>
+    function addTech() {
+        const div = document.createElement('div');
+        div.innerHTML = `
+            <input type="text" name="tecnologia" placeholder="Ex: JavaScript">
+            <select name="nivel">
+                <option value="Básico">Básico</option>
+                <option value="Intermediário">Intermediário</option>
+                <option value="Avançado">Avançado</option>
+            </select>`;
+        document.getElementById('tecnologias').appendChild(div);
+    }
+</script>
+
+</body>
+</html>

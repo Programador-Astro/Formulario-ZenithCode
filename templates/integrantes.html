@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrantes - Zenith Core</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url('/static/Gemini_Generated_Image_9ibch49ibch49ibc.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            backdrop-filter: brightness(0.5);
+        }
+
+        h1 {
+            margin: 2rem 0 1rem;
+            color: #00f7ff;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 0;
+        }
+
+        .card {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 0 15px #00f7ff;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info {
+            margin-bottom: 1rem;
+        }
+
+        .info strong {
+            color: #00f7ff;
+        }
+
+        .tech-list {
+            margin-top: 10px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .tech-list li {
+            background-color: #1a1a1a;
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        a {
+            color: #00f7ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Integrantes Zenith Core</h1>
+
+<div class="container">
+    {% for usuario in usuarios %}
+    <div class="card">
+        <div class="info"><strong>Nome:</strong> {{ usuario.nome }}</div>
+        <div class="info"><strong>Email:</strong> {{ usuario.email }}</div>
+        <div class="info"><strong>Telefone:</strong> {{ usuario.telefone }}</div>
+        {% if usuario.discord %}
+        <div class="info"><strong>Discord:</strong> {{ usuario.discord }}</div>
+        {% endif %}
+        {% if usuario.github %}
+        <div class="info"><strong>GitHub:</strong> <a href="{{ usuario.github }}" target="_blank">{{ usuario.github }}</a></div>
+        {% endif %}
+        {% if usuario.linkedin %}
+        <div class="info"><strong>LinkedIn:</strong> <a href="{{ usuario.linkedin }}" target="_blank">{{ usuario.linkedin }}</a></div>
+        {% endif %}
+
+        <div class="info">
+            <strong>Tecnologias:</strong>
+            <ul class="tech-list">
+                {% for tech in usuario.tecnologias %}
+                <li>{{ tech.nome }} - {{ tech.nivel }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
