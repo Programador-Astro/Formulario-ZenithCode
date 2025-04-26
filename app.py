@@ -46,4 +46,4 @@ def integrantes():
     usuarios = Usuario.query.all()
     return render_template('integrantes.html', usuarios=usuarios)
 
-Flask.run(app, debug=True)
+Flask.run(app, debug=True, port=5000)
